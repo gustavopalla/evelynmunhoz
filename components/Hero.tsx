@@ -6,22 +6,23 @@ export function Hero({ t, onOpenVideo }: { t: Copy; onOpenVideo: () => void }) {
   return (
     <section
       id="top"
-      className="mx-auto flex max-w-[1240px] flex-col gap-5 px-6 pt-6 pb-[clamp(56px,7vw,96px)]"
+      className="mx-auto flex max-w-[1240px] flex-col gap-4 px-4 pt-4 pb-[clamp(56px,7vw,96px)] sm:gap-5 sm:px-6 sm:pt-6"
     >
-      <div className="relative grid grid-cols-[40px_minmax(0,1fr)] overflow-hidden border border-ink bg-[radial-gradient(55%_65%_at_80%_45%,#FCEEE9_0%,rgba(252,238,233,0)_72%),#FAF7F2]">
-        <div className="flex items-center justify-center border-r border-ink py-4">
+      <div className="relative grid grid-cols-1 overflow-hidden sm:grid-cols-[40px_minmax(0,1fr)] border border-ink bg-[radial-gradient(55%_65%_at_80%_45%,#FCEEE9_0%,rgba(252,238,233,0)_72%),#FAF7F2]">
+        <div className="hidden items-center justify-center border-r border-ink py-4 sm:flex">
           <span className="eyebrow rotate-180 whitespace-nowrap text-ink [writing-mode:vertical-rl]">
             {t.heroYear}
           </span>
         </div>
+        <div className="eyebrow border-b border-ink px-4 py-2.5 text-ink sm:hidden">{t.heroYear}</div>
 
         <div className="grid grid-cols-[repeat(auto-fit,minmax(min(100%,380px),1fr))]">
-          <div className="relative flex flex-col justify-between gap-8 p-[clamp(24px,4vw,52px)]">
+          <div className="relative flex flex-col justify-between gap-8 p-5 sm:p-[clamp(24px,4vw,52px)]">
             <div className="relative">
               <Sparkle size={28} className="-top-2.5 -left-1.5" />
               <Sparkle size={44} className="top-[30%] right-[8%]" />
               <Sparkle size={16} fill="var(--color-rose-light)" className="right-[22%] bottom-[6%]" />
-              <h1 className="display m-0 pt-[18px] pl-[18px] text-[clamp(64px,9.6vw,140px)] leading-[0.84] text-ink">
+              <h1 className="display m-0 pt-[18px] pl-[18px] text-[clamp(84px,9.6vw,140px)] leading-[0.84] text-ink">
                 Eve
                 <br />
                 lyn
@@ -54,7 +55,7 @@ export function Hero({ t, onOpenVideo }: { t: Copy; onOpenVideo: () => void }) {
             </div>
           </div>
 
-          <div className="relative flex min-h-[440px] items-center justify-center px-6 py-[clamp(40px,6vw,72px)]">
+          <div className="relative flex min-h-[400px] items-center justify-center px-6 py-[clamp(40px,6vw,72px)] max-sm:order-first max-sm:border-b max-sm:border-ink md:min-h-[440px]">
             <div className="pointer-events-none absolute aspect-[1/1.35] w-[min(78%,440px)] -rotate-[24deg] rounded-full border border-ink" />
             <Sparkle size={40} className="top-[14%] left-[12%]" />
             <Sparkle size={22} className="right-[12%] bottom-[16%]" />
@@ -74,7 +75,7 @@ export function Hero({ t, onOpenVideo }: { t: Copy; onOpenVideo: () => void }) {
           </div>
         </div>
 
-        <div className="eyebrow col-span-full flex flex-wrap justify-between gap-x-6 gap-y-2 border-t border-ink px-5 py-3 text-ink">
+        <div className="eyebrow col-span-full flex flex-wrap justify-between max-sm:flex-col max-sm:items-start gap-x-6 gap-y-2 border-t border-ink px-5 py-3 text-ink">
           <span>{t.heroAvail}</span>
           <span className="font-script text-[22px] leading-none font-normal tracking-normal whitespace-nowrap normal-case">
             Evelyn Munhoz

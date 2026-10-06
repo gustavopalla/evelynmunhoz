@@ -26,33 +26,35 @@
   --font-script: var(--font-brush), cursive;
 }
 
-html {
-  scroll-behavior: smooth;
-}
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
 
-body {
-  margin: 0;
-  background: var(--color-cream);
-  color: var(--color-body);
-  font-family: var(--font-sans);
-  -webkit-font-smoothing: antialiased;
-}
+  body {
+    margin: 0;
+    background: var(--color-cream);
+    color: var(--color-body);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+  }
 
-a {
-  color: var(--color-rose);
-  text-decoration: none;
-}
+  a {
+    color: var(--color-rose);
+    text-decoration: none;
+  }
 
-::selection {
-  background: var(--color-rose-light);
-  color: #fff;
-}
+  ::selection {
+    background: var(--color-rose-light);
+    color: #fff;
+  }
 
-input,
-select,
-textarea,
-button {
-  font-family: inherit;
+  input,
+  select,
+  textarea,
+  button {
+    font-family: inherit;
+  }
 }
 
 /* Playfair headline treatment shared by every section title */

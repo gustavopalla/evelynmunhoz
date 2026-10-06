@@ -25,7 +25,7 @@ export function About({ t, lang }: { t: Copy; lang: Lang }) {
 
         <div className="grid grid-cols-[repeat(auto-fit,minmax(min(100%,260px),1fr))] items-center gap-[clamp(24px,4vw,48px)] px-[clamp(20px,4vw,48px)] pb-[clamp(32px,4vw,48px)]">
           <p className="m-0 font-serif text-[21px] leading-[1.45] text-ink text-pretty">{t.aboutP1}</p>
-          <div className="stripes-blush relative aspect-[3/4] w-[min(100%,300px)] justify-self-center overflow-hidden rounded-full border border-ink">
+          <div className="stripes-blush relative aspect-[3/4] w-[min(100%,220px)] sm:w-[min(100%,300px)] justify-self-center overflow-hidden rounded-full border border-ink">
             <ImageSlot placeholder="retrato Evelyn" />
           </div>
           <div className="flex flex-col gap-4">

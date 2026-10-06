@@ -90,8 +90,8 @@ export function SectionBar({
         dark ? "border-blush/20 text-dusk" : "border-line text-muted"
       }`}
     >
-      <span>{left}</span>
-      <span>{right}</span>
+      <span className="whitespace-nowrap">{left}</span>
+      <span className="text-right">{right}</span>
     </div>
   );
 }
