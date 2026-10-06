@@ -16,7 +16,7 @@ export function Hero({ t, onOpenVideo }: { t: Copy; onOpenVideo: () => void }) {
         </div>
         <div className="eyebrow border-b border-ink px-4 py-2.5 text-ink sm:hidden">{t.heroYear}</div>
 
-        <div className="grid grid-cols-[repeat(auto-fit,minmax(min(100%,380px),1fr))]">
+        <div className="grid grid-cols-1 lg:grid-cols-2">
           <div className="relative flex flex-col justify-between gap-8 p-5 sm:p-[clamp(24px,4vw,52px)]">
             <div className="relative">
               <Sparkle size={28} className="-top-2.5 -left-1.5" />
@@ -55,7 +55,7 @@ export function Hero({ t, onOpenVideo }: { t: Copy; onOpenVideo: () => void }) {
             </div>
           </div>
 
-          <div className="relative flex min-h-[400px] items-center justify-center px-6 py-[clamp(40px,6vw,72px)] max-sm:order-first max-sm:border-b max-sm:border-ink md:min-h-[440px]">
+          <div className="relative order-first flex min-h-[400px] items-center justify-center border-b border-ink px-6 py-10 sm:py-[clamp(40px,6vw,72px)] md:min-h-[440px] lg:order-none lg:border-b-0">
             <div className="pointer-events-none absolute aspect-[1/1.35] w-[min(78%,440px)] -rotate-[24deg] rounded-full border border-ink" />
             <Sparkle size={40} className="top-[14%] left-[12%]" />
             <Sparkle size={22} className="right-[12%] bottom-[16%]" />
@@ -75,7 +75,7 @@ export function Hero({ t, onOpenVideo }: { t: Copy; onOpenVideo: () => void }) {
           </div>
         </div>
 
-        <div className="eyebrow col-span-full flex flex-wrap justify-between max-sm:flex-col max-sm:items-start gap-x-6 gap-y-2 border-t border-ink px-5 py-3 text-ink">
+        <div className="eyebrow col-span-full flex flex-col items-start gap-2 border-t sm:flex-row sm:flex-wrap sm:items-center sm:justify-between sm:gap-x-6 border-ink px-5 py-3 text-ink">
           <span>{t.heroAvail}</span>
           <span className="font-script text-[22px] leading-none font-normal tracking-normal whitespace-nowrap normal-case">
             Evelyn Munhoz

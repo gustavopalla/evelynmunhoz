@@ -12,14 +12,14 @@ export function Header({
   onLang: (l: Lang) => void;
 }) {
   const langBtn = (on: boolean) =>
-    `min-h-9 min-w-10 cursor-pointer rounded-full px-2.5 text-xs font-semibold tracking-[0.04em] transition-all duration-300 ${
+    `min-h-9 min-w-9 cursor-pointer rounded-full px-2 sm:min-w-10 sm:px-2.5 text-xs font-semibold tracking-[0.04em] transition-all duration-300 ${
       on ? "bg-ink text-blush" : "bg-transparent text-muted"
     }`;
 
   return (
     <header className="sticky top-0 z-40 border-b border-line bg-cream/85 backdrop-blur-lg">
-      <div className="mx-auto flex max-w-[1240px] items-center justify-between gap-4 px-6 py-2.5">
-        <a href="#top" className="flex items-center gap-2.5 text-ink">
+      <div className="mx-auto flex max-w-[1240px] items-center justify-between gap-2 px-4 py-2.5 sm:gap-4 sm:px-6">
+        <a href="#top" className="flex min-w-0 items-center gap-2 text-ink sm:gap-2.5">
           <Image
             src="/assets/evelyn-mirror.png"
             alt="Evelyn Munhoz"
@@ -27,7 +27,7 @@ export function Header({
             height={36}
             className="size-9 rounded-full object-cover"
           />
-          <span className="display whitespace-nowrap text-[17px] leading-none">evelyn munhoz</span>
+          <span className="display truncate text-[13px] leading-none min-[400px]:text-[15px] sm:text-[17px]">evelyn munhoz</span>
         </a>
 
         <nav className="hidden items-center gap-0.5 lg:flex">
@@ -42,7 +42,7 @@ export function Header({
           ))}
         </nav>
 
-        <div className="flex items-center gap-2">
+        <div className="flex flex-none items-center gap-1.5 sm:gap-2">
           <div
             role="group"
             aria-label="Language"
@@ -64,7 +64,7 @@ export function Header({
           <a
             href="#contato"
             aria-label={t.contactNav}
-            className="flex size-11 items-center justify-center rounded-full bg-ink text-blush transition-colors duration-300 hover:bg-rose hover:text-white lg:hidden"
+            className="flex size-10 items-center justify-center rounded-full bg-ink sm:size-11 text-blush transition-colors duration-300 hover:bg-rose hover:text-white lg:hidden"
           >
             <svg width="18" height="18" fill="none" stroke="currentColor" strokeWidth="1.6" viewBox="0 0 24 24">
               <rect x="3" y="5" width="18" height="14" rx="2" />

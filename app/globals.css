@@ -59,6 +59,7 @@
 
 /* Playfair headline treatment shared by every section title */
 @utility display {
+  overflow-wrap: break-word;
   font-family: var(--font-display);
   font-weight: 900;
   letter-spacing: -0.02em;

@@ -11,14 +11,16 @@ export function Niches({ t }: { t: Copy }) {
           {t.niches.map(([name, desc, ph], i) => (
             <div
               key={name}
-              className="grid grid-cols-[36px_minmax(0,1fr)_72px] items-center gap-4 sm:grid-cols-[minmax(56px,120px)_minmax(0,1fr)_clamp(88px,14vw,150px)] sm:gap-[clamp(16px,3vw,40px)] border-t border-ink py-5"
+              className="grid grid-cols-[minmax(0,1fr)_88px] gap-x-4 gap-y-1 border-t border-ink py-5 sm:grid-cols-[minmax(56px,120px)_minmax(0,1fr)_clamp(88px,14vw,150px)] sm:items-center sm:gap-x-[clamp(16px,3vw,40px)]"
             >
-              <span className="display text-[clamp(28px,5vw,72px)] leading-none text-rose">{i + 1}.</span>
-              <div className="flex flex-col gap-1.5">
-                <span className="display text-[clamp(26px,3vw,40px)] leading-none text-ink">{name}</span>
-                <span className="max-w-[440px] text-sm leading-[1.55]">{desc}</span>
-              </div>
-              <div className="relative aspect-square overflow-hidden rounded-md bg-[repeating-linear-gradient(135deg,#FAF7F2_0_10px,#F6E9E3_10px_20px)]">
+              <span className="display text-3xl leading-none text-rose sm:row-span-2 sm:text-[clamp(40px,5vw,72px)]">
+                {i + 1}.
+              </span>
+              <span className="display col-start-1 break-words text-[26px] leading-none text-ink sm:col-start-2 sm:text-[clamp(26px,3vw,40px)]">
+                {name}
+              </span>
+              <span className="col-start-1 max-w-[440px] text-sm leading-[1.55] sm:col-start-2">{desc}</span>
+              <div className="relative col-start-2 row-span-3 row-start-1 aspect-square self-center overflow-hidden rounded-md bg-[repeating-linear-gradient(135deg,#FAF7F2_0_10px,#F6E9E3_10px_20px)] sm:col-start-3 sm:row-span-2">
                 <ImageSlot placeholder={ph} />
               </div>
             </div>
