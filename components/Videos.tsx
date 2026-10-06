@@ -1,5 +1,5 @@
 import type { Copy } from "@/lib/content";
-import { INSTAGRAM_URL } from "@/lib/content";
+import { INSTAGRAM_URL, VIDEO_FILES } from "@/lib/content";
 import { ImageSlot, PlayIcon, SectionBar } from "./ui";
 
 export function Videos({ t, onOpen }: { t: Copy; onOpen: (i: number) => void }) {
@@ -25,7 +25,7 @@ export function Videos({ t, onOpen }: { t: Copy; onOpen: (i: number) => void }) 
             <div key={title} className="flex-[0_0_68%] snap-start md:flex-none">
               <div className="flex flex-col gap-3.5">
                 <div className="relative aspect-[9/16] overflow-hidden rounded-lg bg-[repeating-linear-gradient(135deg,#352B28_0_10px,#3C312E_10px_20px)]">
-                  <ImageSlot placeholder="capa vídeo 9:16" />
+                  <ImageSlot src={VIDEO_FILES[i].poster} alt={title} sizes="(min-width: 1024px) 400px, 68vw" />
                   <button
                     onClick={() => onOpen(i)}
                     aria-label="Play"

@@ -3,7 +3,7 @@
 import { useState, type ChangeEvent, type FormEvent } from "react";
 import type { Copy } from "@/lib/content";
 import { EMAIL, INSTAGRAM_HANDLE, INSTAGRAM_URL } from "@/lib/content";
-import { ArrowRight, ImageSlot, SectionBar, Sparkle } from "./ui";
+import { ArrowRight, SectionBar, Sparkle } from "./ui";
 
 export interface ContactForm {
   name: string;
@@ -138,12 +138,6 @@ export function Contact({
                 >
                   WhatsApp
                 </ContactLink>
-              </div>
-              <div className="flex w-[150px] flex-col items-center gap-2.5 rounded-2xl bg-blush p-3.5">
-                <div className="relative size-[110px] overflow-hidden rounded-lg bg-white">
-                  <ImageSlot fit="contain" placeholder="QR code" />
-                </div>
-                <span className="text-center text-[11px] leading-[1.35] text-ink">{t.qrLabel}</span>
               </div>
             </div>
           </div>

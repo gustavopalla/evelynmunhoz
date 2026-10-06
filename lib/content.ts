@@ -5,8 +5,6 @@ type Pair = readonly [string, string];
 export interface Copy {
   nav: readonly string[];
   navCta: string;
-  heroReel: string;
-  qrLabel: string;
   heroYear: string;
   contactReply: string;
   contactNav: string;
@@ -52,11 +50,8 @@ export interface Copy {
   sentTitle: string;
   sentBody: string;
   sentAgain: string;
-  modalPh: string;
   modalBody: string;
   modalCta: string;
-  muted: string;
-  unmuted: string;
   /** [name, description, image placeholder] */
   niches: readonly (readonly [string, string, string])[];
   /** [title, tag, niche, duration] */
@@ -73,8 +68,6 @@ export const COPY: Record<Lang, Copy> = {
   pt: {
     nav: ["Sobre", "Nichos", "Vídeos", "Fotos", "Pacotes", "Depoimentos"],
     navCta: "Solicitar proposta",
-    heroReel: "Assistir reel",
-    qrLabel: "Escaneie para ver meu Instagram",
     heroYear: "Portfólio 2026",
     contactReply: "Resposta em até 48h",
     contactNav: "Contato",
@@ -128,12 +121,9 @@ export const COPY: Record<Lang, Copy> = {
     sentTitle: "Recebido!",
     sentBody: "Obrigada pelo contato. Respondo em até 48h com uma proposta.",
     sentAgain: "Enviar outra mensagem",
-    modalPh: "arquivo de vídeo 9:16\n(substituir pelo player)",
     modalBody:
       "Roteiro, gravação e edição por Evelyn. Entregue em 9:16 com legendas, pronto para orgânico e anúncios.",
     modalCta: "Quero um vídeo assim",
-    muted: "Som desativado",
-    unmuted: "Som ativado",
     niches: [
       ["Beleza & Maquiagem", "Tutoriais, GRWM e reviews honestos de make.", "close-up maquiagem"],
       ["Skincare", "Rotinas, texturas e antes/depois com luz natural.", "textura skincare"],
@@ -141,12 +131,11 @@ export const COPY: Record<Lang, Copy> = {
       ["Lifestyle", "Rotina real, café, casa e bem-estar.", "rotina lifestyle"],
     ],
     videos: [
-      ["Rotina de skincare da manhã", "Tutorial", "Skincare", "0:32"],
-      ["Unboxing de maquiagem", "Unboxing & Review", "Beleza", "0:45"],
-      ["Get ready with me", "GRWM", "Beleza", "0:58"],
-      ["Look da semana", "Provador", "Moda", "0:27"],
-      ["Review honesto: base", "Review", "Beleza", "0:40"],
-      ["Café & rotina", "Lifestyle", "Lifestyle", "0:22"],
+      ["Test drive no carro novo", "Automotivo", "Automotivo", "0:16"],
+      ["Frios fatiados na hora", "Review de loja", "Varejo & Food", "0:20"],
+      ["Meu delivery de japa preferido", "Food", "Food & Delivery", "1:20"],
+      ["Drink e bate-papo no evento", "Lifestyle", "Bebidas", "1:28"],
+      ["Último dia do festival de comidas", "Cobertura de evento", "Eventos", "2:34"],
     ],
     photos: [
       "produto em mãos · 4:5",
@@ -227,8 +216,6 @@ export const COPY: Record<Lang, Copy> = {
   en: {
     nav: ["About", "Niches", "Videos", "Photos", "Packages", "Reviews"],
     navCta: "Request a quote",
-    heroReel: "Watch reel",
-    qrLabel: "Scan to see my Instagram",
     heroYear: "Portfolio 2026",
     contactReply: "Reply within 48h",
     contactNav: "Contact",
@@ -282,12 +269,9 @@ export const COPY: Record<Lang, Copy> = {
     sentTitle: "Received!",
     sentBody: "Thanks for reaching out. I'll reply within 48h with a proposal.",
     sentAgain: "Send another message",
-    modalPh: "9:16 video file\n(replace with player)",
     modalBody:
       "Scripted, shot and edited by Evelyn. Delivered in 9:16 with captions, ready for organic and ads.",
     modalCta: "I want a video like this",
-    muted: "Muted",
-    unmuted: "Sound on",
     niches: [
       ["Beauty & Makeup", "Tutorials, GRWM and honest makeup reviews.", "makeup close-up"],
       ["Skincare", "Routines, textures and before/after in natural light.", "skincare texture"],
@@ -295,12 +279,11 @@ export const COPY: Record<Lang, Copy> = {
       ["Lifestyle", "Real routines, coffee, home and wellness.", "lifestyle routine"],
     ],
     videos: [
-      ["Morning skincare routine", "Tutorial", "Skincare", "0:32"],
-      ["Makeup unboxing", "Unboxing & Review", "Beauty", "0:45"],
-      ["Get ready with me", "GRWM", "Beauty", "0:58"],
-      ["Outfits of the week", "Try-on", "Fashion", "0:27"],
-      ["Honest review: foundation", "Review", "Beauty", "0:40"],
-      ["Coffee & routine", "Lifestyle", "Lifestyle", "0:22"],
+      ["New car test drive", "Automotive", "Automotive", "0:16"],
+      ["Freshly sliced cold cuts", "Store review", "Retail & Food", "0:20"],
+      ["My favorite sushi delivery", "Food", "Food & Delivery", "1:20"],
+      ["Drinks and chat at the event", "Lifestyle", "Beverages", "1:28"],
+      ["Last day of the food festival", "Event coverage", "Events", "2:34"],
     ],
     photos: [
       "product in hand · 4:5",
@@ -383,6 +366,12 @@ export const NAV_HREFS = [
   "#pacotes",
   "#depoimentos",
 ] as const;
+
+/** Files in /public/videos, in the same order as `videos` in COPY. */
+export const VIDEO_FILES = [1, 2, 3, 4, 5].map((n) => ({
+  src: `/videos/video-${n}.mp4`,
+  poster: `/videos/video-${n}.jpg`,
+}));
 
 export const SHOW_PRICES = true;
 export const EMAIL = "evelynmunhoz59@gmail.com";

@@ -33,7 +33,7 @@ export function Portfolio() {
   return (
     <div className="min-h-screen bg-cream">
       <Header t={t} lang={lang} onLang={setLang} />
-      <Hero t={t} onOpenVideo={() => setModal(0)} />
+      <Hero t={t} />
       <Brands t={t} />
       <About t={t} lang={lang} />
       <Niches t={t} />

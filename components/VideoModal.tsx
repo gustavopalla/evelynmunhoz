@@ -1,7 +1,7 @@
 "use client";
 
-import { useEffect, useState } from "react";
-import type { Copy } from "@/lib/content";
+import { useEffect } from "react";
+import { VIDEO_FILES, type Copy } from "@/lib/content";
 
 export function VideoModal({
   t,
@@ -12,7 +12,6 @@ export function VideoModal({
   index: number;
   onClose: () => void;
 }) {
-  const [muted, setMuted] = useState(true);
   const [title, tag, niche, dur] = t.videos[index];
 
   useEffect(() => {
@@ -33,17 +32,17 @@ export function VideoModal({
         aria-label={title}
         className="flex max-h-[calc(100vh-40px)] w-full max-w-[760px] flex-wrap gap-6 overflow-auto rounded-3xl bg-cream p-4"
       >
-        <div className="stripes-blush relative mx-auto flex aspect-[9/16] max-w-[340px] flex-[1_1_260px] items-center justify-center overflow-hidden rounded-xl">
-          <span className="p-6 text-center font-mono text-xs whitespace-pre-line text-muted">{t.modalPh}</span>
-          <button
-            onClick={() => setMuted((m) => !m)}
-            className="absolute bottom-3.5 left-3.5 flex min-h-10 cursor-pointer items-center gap-1.5 rounded-full bg-ink/70 px-3.5 py-2 text-xs font-medium text-white"
-          >
-            <svg width="14" height="14" fill="none" stroke="currentColor" strokeWidth="1.8" viewBox="0 0 24 24">
-              <path d="M11 5L6 9H2v6h4l5 4V5z" strokeLinejoin="round" />
-            </svg>
-            {muted ? t.muted : t.unmuted}
-          </button>
+        <div className="relative mx-auto aspect-[9/16] max-w-[340px] flex-[1_1_260px] overflow-hidden rounded-xl">
+          <video
+            src={VIDEO_FILES[index].src}
+            poster={VIDEO_FILES[index].poster}
+            controls
+            autoPlay
+            muted
+            playsInline
+            preload="metadata"
+            className="size-full bg-ink object-contain"
+          />
         </div>
         <div className="flex flex-[1_1_260px] flex-col gap-3.5 px-2 py-3">
           <div className="flex items-center justify-between gap-2">

@@ -1,8 +1,8 @@
 import type { Copy } from "@/lib/content";
 import { INSTAGRAM_HANDLE, INSTAGRAM_URL, NAV_HREFS } from "@/lib/content";
-import { ArrowRight, ImageSlot, PlayIcon, Sparkle } from "./ui";
+import { ArrowRight, ImageSlot, Sparkle } from "./ui";
 
-export function Hero({ t, onOpenVideo }: { t: Copy; onOpenVideo: () => void }) {
+export function Hero({ t }: { t: Copy }) {
   return (
     <section
       id="top"
@@ -61,17 +61,8 @@ export function Hero({ t, onOpenVideo }: { t: Copy; onOpenVideo: () => void }) {
             <Sparkle size={22} className="right-[12%] bottom-[16%]" />
             <Sparkle size={14} fill="var(--color-rose-light)" className="top-[12%] right-[20%]" />
             <div className="stripes-blush relative aspect-[9/15] w-[min(300px,64%)] overflow-hidden rounded-full border border-ink">
-              <ImageSlot placeholder="foto Evelyn · retrato" />
+              <ImageSlot src="/assets/hero-retrato.jpg" alt="Evelyn Munhoz" sizes="(min-width: 640px) 300px, 64vw" />
             </div>
-            <button
-              onClick={onOpenVideo}
-              className="absolute bottom-[clamp(20px,4vw,44px)] left-1/2 flex min-h-11 -translate-x-1/2 cursor-pointer items-center gap-2.5 rounded-full border border-ink bg-cream py-2 pr-[18px] pl-2 text-[13px] font-semibold whitespace-nowrap text-ink transition-colors duration-300 hover:bg-blush"
-            >
-              <span className="flex size-[30px] items-center justify-center rounded-full bg-rose-light text-white">
-                <PlayIcon size={12} />
-              </span>
-              {t.heroReel}
-            </button>
           </div>
         </div>
 
