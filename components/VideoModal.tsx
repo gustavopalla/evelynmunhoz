@@ -1,0 +1,77 @@
+"use client";
+
+import { useEffect, useState } from "react";
+import type { Copy } from "@/lib/content";
+
+export function VideoModal({
+  t,
+  index,
+  onClose,
+}: {
+  t: Copy;
+  index: number;
+  onClose: () => void;
+}) {
+  const [muted, setMuted] = useState(true);
+  const [title, tag, niche, dur] = t.videos[index];
+
+  useEffect(() => {
+    const onKey = (e: KeyboardEvent) => e.key === "Escape" && onClose();
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [onClose]);
+
+  return (
+    <div
+      onClick={onClose}
+      className="fixed inset-0 z-[100] flex items-center justify-center bg-ink/70 p-5 backdrop-blur-[6px]"
+    >
+      <div
+        onClick={(e) => e.stopPropagation()}
+        role="dialog"
+        aria-modal="true"
+        aria-label={title}
+        className="flex max-h-[calc(100vh-40px)] w-full max-w-[760px] flex-wrap gap-6 overflow-auto rounded-3xl bg-cream p-4"
+      >
+        <div className="stripes-blush relative mx-auto flex aspect-[9/16] max-w-[340px] flex-[1_1_260px] items-center justify-center overflow-hidden rounded-xl">
+          <span className="p-6 text-center font-mono text-xs whitespace-pre-line text-muted">{t.modalPh}</span>
+          <button
+            onClick={() => setMuted((m) => !m)}
+            className="absolute bottom-3.5 left-3.5 flex min-h-10 cursor-pointer items-center gap-1.5 rounded-full bg-ink/70 px-3.5 py-2 text-xs font-medium text-white"
+          >
+            <svg width="14" height="14" fill="none" stroke="currentColor" strokeWidth="1.8" viewBox="0 0 24 24">
+              <path d="M11 5L6 9H2v6h4l5 4V5z" strokeLinejoin="round" />
+            </svg>
+            {muted ? t.muted : t.unmuted}
+          </button>
+        </div>
+        <div className="flex flex-[1_1_260px] flex-col gap-3.5 px-2 py-3">
+          <div className="flex items-center justify-between gap-2">
+            <span className="eyebrow text-rose">
+              0{index + 1} · {niche}
+            </span>
+            <button
+              onClick={onClose}
+              aria-label="Fechar"
+              className="flex size-11 cursor-pointer items-center justify-center rounded-full border border-ink bg-transparent text-xl text-ink"
+            >
+              ×
+            </button>
+          </div>
+          <h3 className="display m-0 text-[40px] leading-[0.95] text-ink">{title}</h3>
+          <span className="font-serif text-[19px] text-muted italic">
+            {tag} · {dur}
+          </span>
+          <p className="m-0 text-sm leading-[1.7]">{t.modalBody}</p>
+          <a
+            href="#contato"
+            onClick={onClose}
+            className="mt-auto self-start rounded-full bg-ink px-6 py-3.5 text-sm font-semibold text-blush transition-colors hover:bg-rose hover:text-white"
+          >
+            {t.modalCta}
+          </a>
+        </div>
+      </div>
+    </div>
+  );
+}

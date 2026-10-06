@@ -1,26 +1,92 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-cream: #faf7f2;
+  --color-blush: #fceee9;
+  --color-blush-deep: #f8e6df;
+  --color-blush-sand: #f6e9e3;
+  --color-rose: #b86f6e;
+  --color-rose-dark: #a35a59;
+  --color-rose-light: #d48c8b;
+  --color-peach: #e2a391;
+  --color-ink: #2a2220;
+  --color-body: #5c524f;
+  --color-muted: #948884;
+  --color-line: #f0dcd5;
+  --color-dusk: #c9b9b4;
+  --color-dusk-soft: #e6d8d3;
+  --color-sage: #6b8e68;
+  --color-error: #c85a5a;
+  --color-night-1: #352b28;
+  --color-night-2: #3c312e;
+
+  --font-sans: var(--font-jakarta), system-ui, sans-serif;
+  --font-display: var(--font-playfair), Georgia, serif;
+  --font-serif: var(--font-cormorant), Georgia, serif;
+  --font-script: var(--font-brush), cursive;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+  background: var(--color-cream);
+  color: var(--color-body);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  color: var(--color-rose);
+  text-decoration: none;
+}
+
+::selection {
+  background: var(--color-rose-light);
+  color: #fff;
+}
+
+input,
+select,
+textarea,
+button {
+  font-family: inherit;
+}
+
+/* Playfair headline treatment shared by every section title */
+@utility display {
+  font-family: var(--font-display);
+  font-weight: 900;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+}
+
+/* Small caps label used for eyebrows, nav and form labels */
+@utility eyebrow {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+@utility section-title {
+  font-family: var(--font-display);
+  font-weight: 900;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+  font-size: clamp(40px, 5.4vw, 76px);
+  line-height: 0.95;
+}
+
+@utility stripes-blush {
+  background: repeating-linear-gradient(135deg, #fcece9 0 12px, #f8e6df 12px 24px);
+}
+
+@utility scrollbar-none {
+  scrollbar-width: none;
+  &::-webkit-scrollbar {
+    display: none;
+  }
 }
