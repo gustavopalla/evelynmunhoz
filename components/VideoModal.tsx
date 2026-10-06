@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import { VIDEO_FILES, type Copy } from "@/lib/content";
 
 export function VideoModal({
@@ -13,6 +13,19 @@ export function VideoModal({
   onClose: () => void;
 }) {
   const [title, tag, niche, dur] = t.videos[index];
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  // Opened by a click, so browsers allow playback with sound. If one still
+  // blocks it, fall back to muted so the video at least plays (controls stay).
+  useEffect(() => {
+    const v = videoRef.current;
+    if (!v) return;
+    v.muted = false;
+    v.play().catch(() => {
+      v.muted = true;
+      v.play().catch(() => {});
+    });
+  }, []);
 
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => e.key === "Escape" && onClose();
@@ -34,11 +47,10 @@ export function VideoModal({
       >
         <div className="relative mx-auto aspect-[9/16] max-w-[340px] flex-[1_1_260px] overflow-hidden rounded-xl">
           <video
+            ref={videoRef}
             src={VIDEO_FILES[index].src}
             poster={VIDEO_FILES[index].poster}
             controls
-            autoPlay
-            muted
             playsInline
             preload="metadata"
             className="size-full bg-ink object-contain"
