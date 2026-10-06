@@ -1,7 +1,7 @@
 "use client";
 
 import { useCallback, useState } from "react";
-import { COPY, type Lang } from "@/lib/content";
+import { COPY as t } from "@/lib/content";
 import { About } from "./About";
 import { Brands } from "./Brands";
 import { Contact, type ContactForm } from "./Contact";
@@ -18,10 +18,8 @@ import { Videos } from "./Videos";
 const EMPTY_FORM: ContactForm = { name: "", brand: "", email: "", pkg: "", msg: "" };
 
 export function Portfolio() {
-  const [lang, setLang] = useState<Lang>("pt");
   const [modal, setModal] = useState<number | null>(null);
   const [form, setForm] = useState<ContactForm>(EMPTY_FORM);
-  const t = COPY[lang];
 
   const closeModal = useCallback(() => setModal(null), []);
 
@@ -32,10 +30,10 @@ export function Portfolio() {
 
   return (
     <div className="min-h-screen bg-cream">
-      <Header t={t} lang={lang} onLang={setLang} />
+      <Header t={t} />
       <Hero t={t} />
       <Brands t={t} />
-      <About t={t} lang={lang} />
+      <About t={t} />
       <Niches t={t} />
       <Videos t={t} onOpen={setModal} />
       <Photos t={t} />

@@ -1,21 +1,8 @@
 import Image from "next/image";
-import type { Lang, Copy } from "@/lib/content";
+import type { Copy } from "@/lib/content";
 import { NAV_HREFS } from "@/lib/content";
 
-export function Header({
-  t,
-  lang,
-  onLang,
-}: {
-  t: Copy;
-  lang: Lang;
-  onLang: (l: Lang) => void;
-}) {
-  const langBtn = (on: boolean) =>
-    `min-h-9 min-w-9 cursor-pointer rounded-full px-2 sm:min-w-10 sm:px-2.5 text-xs font-semibold tracking-[0.04em] transition-all duration-300 ${
-      on ? "bg-ink text-blush" : "bg-transparent text-muted"
-    }`;
-
+export function Header({ t }: { t: Copy }) {
   return (
     <header className="sticky top-0 z-40 border-b border-line bg-cream/85 backdrop-blur-lg">
       <div className="mx-auto flex max-w-[1240px] items-center justify-between gap-2 px-4 py-2.5 sm:gap-4 sm:px-6">
@@ -27,7 +14,7 @@ export function Header({
             height={36}
             className="size-9 rounded-full object-cover"
           />
-          <span className="display truncate text-[13px] leading-none min-[400px]:text-[15px] sm:text-[17px]">evelyn munhoz</span>
+          <span className="display truncate text-[16px] leading-none sm:text-[17px]">evelyn munhoz</span>
         </a>
 
         <nav className="hidden items-center gap-0.5 lg:flex">
@@ -43,18 +30,6 @@ export function Header({
         </nav>
 
         <div className="flex flex-none items-center gap-1.5 sm:gap-2">
-          <div
-            role="group"
-            aria-label="Language"
-            className="flex rounded-full border border-line bg-white p-[3px]"
-          >
-            <button onClick={() => onLang("pt")} className={langBtn(lang === "pt")}>
-              PT
-            </button>
-            <button onClick={() => onLang("en")} className={langBtn(lang === "en")}>
-              EN
-            </button>
-          </div>
           <a
             href="#contato"
             className="hidden rounded-full bg-ink px-[22px] py-[13px] text-[13px] font-semibold text-blush transition-colors duration-300 hover:bg-rose hover:text-white lg:block"

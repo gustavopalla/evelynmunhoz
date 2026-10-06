@@ -1,8 +1,7 @@
-import type { Lang, Copy } from "@/lib/content";
+import type { Copy } from "@/lib/content";
 import { ImageSlot, Sparkle } from "./ui";
 
-export function About({ t, lang }: { t: Copy; lang: Lang }) {
-  const arcText = lang === "pt" ? "Sobre mim" : "About me";
+export function About({ t }: { t: Copy }) {
   return (
     <section
       id="sobre"
@@ -17,7 +16,7 @@ export function About({ t, lang }: { t: Copy; lang: Lang }) {
             <path id="about-arc" d="M40 200 A280 170 0 0 1 600 200" fill="none" />
             <text className="display fill-ink text-[64px]">
               <textPath href="#about-arc" startOffset="50%" textAnchor="middle">
-                {arcText}
+                Sobre mim
               </textPath>
             </text>
           </svg>
